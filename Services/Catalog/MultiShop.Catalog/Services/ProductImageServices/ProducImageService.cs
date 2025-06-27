@@ -2,12 +2,12 @@
 using MongoDB.Driver;
 using MultiShop.Catalog.Dtos.ProductImageDtos;
 using MultiShop.Catalog.Entities;
-using MultiShop.Catalog.Services.ProductImageImageServices;
+using MultiShop.Catalog.Services.ProductImageServices;
 using MultiShop.Catalog.Settings;
 
 namespace MultiShop.Catalog.Services.ProductImageServices
 {
-    public class ProductImageService : IProductImageSerivce
+    public class ProductImageService : IProductImageService
     {
         private readonly IMongoCollection<ProductImage> _categoryCollection;
         private readonly IMapper _mapper;
