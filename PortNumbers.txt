@@ -1,0 +1,5 @@
+Identity -> 5001
+Discount -> 7205
+Catalog -> 7206
+Order -> 7207
+Cargo -> 7208
