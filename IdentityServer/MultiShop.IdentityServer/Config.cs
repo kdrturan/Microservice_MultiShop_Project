@@ -16,6 +16,7 @@ namespace MultiShop.IdentityServer
             new ApiResource("ResourceDiscount"){Scopes = {"DiscountFullPermission"}},
             new ApiResource("ResourceOrder"){Scopes = {"OrderFullPermission"}},
             new ApiResource("ResourceCargo"){Scopes = {"CargoFullPermission"}},
+            new ApiResource("ResourceBasket"){Scopes = {"BasketFullPermission"}},
             new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
         };
 
@@ -33,6 +34,7 @@ namespace MultiShop.IdentityServer
             new ApiScope("DiscountFullPermission", "Full access to Discount API"),
             new ApiScope("OrderFullPermission", "Full access to Order API"),
             new ApiScope("CargoFullPermission", "Full access to Cargo API"),
+            new ApiScope("BasketFullPermission", "Full access to Basket API"),
             new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
 
         };
@@ -54,7 +56,7 @@ namespace MultiShop.IdentityServer
             {
                 ClientId = "MultiShopManagerId",
                 ClientName = "MultiShop Manager User",
-                AllowedGrantTypes = GrantTypes.ClientCredentials,
+                AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                 ClientSecrets = { new Secret("MultiShopSecret".Sha256()) },
                 AllowedScopes = { "CatalogFullPermission"}
             },
@@ -65,9 +67,9 @@ namespace MultiShop.IdentityServer
             {
                 ClientId = "MultiShopAdminId",
                 ClientName = "MultiShop Admin User",
-                AllowedGrantTypes = GrantTypes.ClientCredentials,
+                AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                 ClientSecrets = { new Secret("MultiShopSecret".Sha256()) },
-                AllowedScopes = { "CatalogFullPermission", "DiscountFullPermission", "OrderFullPermission", "CargoFullPermission",
+                AllowedScopes = { "CatalogFullPermission", "DiscountFullPermission", "OrderFullPermission", "CargoFullPermission","BasketFullPermission",
                     IdentityServerConstants.LocalApi.ScopeName,IdentityServerConstants.StandardScopes.Email,
                     IdentityServerConstants.StandardScopes.Profile,IdentityServerConstants.StandardScopes.OpenId },
                 AccessTokenLifetime = 300, // 5 minutes
