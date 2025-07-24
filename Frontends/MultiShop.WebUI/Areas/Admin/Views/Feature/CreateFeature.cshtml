@@ -1,0 +1,32 @@
+﻿@model CreateFeatureDto
+
+@{
+    ViewData["Title"] = "CreateFeature";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<h1>CreateFeature</h1>
+
+
+
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box">
+                <h4>Öne Çıkan Alan Ekleme Sayfası</h4>
+                <div class="bs-example" data-example-id="bordered-table">
+                    <form method="post">
+                        <label for="Title">Öne Çıkan Alan Adı</label>
+                        <input type="text" class="form-control" asp-for="Title" />
+                        <br />
+                        <label for="Title">Icon</label>
+                        <input type="text" class="form-control" asp-for="Icon" />
+                        <br />
+                        <button class="btn btn-primary">Öne Çıkan Alan Ekle</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -11,19 +11,19 @@
                 <h4>Ürün Ekleme Sayfası</h4>
                 <div class="bs-example" data-example-id="bordered-table">
                     <form method="post">
-                        <label for="CategoryName">Ürün Adı</label>
+                        <label for="ProductName">Ürün Adı</label>
                         <input type="text" class="form-control" asp-for="ProductName" />
                         <br />
-                        <label for="CategoryName">Ürün Fiyatı</label>
+                        <label for="ProductPrice">Ürün Fiyatı</label>
                         <input type="text" class="form-control" asp-for="ProductPrice" />
                         <br />
-                        <label for="CategoryName">Ürün Görseli</label>
+                        <label for="ProductImageUrl">Ürün Görseli</label>
                         <input type="text" class="form-control" asp-for="ProductImageUrl" />
                         <br />
-                        <label for="CategoryName">Ürün Kategorisi</label>
+                        <label for="CategoryId">Ürün Kategorisi</label>
 						@Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.Categories,  new { @class = "form-control" })
                         <br />
-                        <label for="CategoryName">Ürün Açıklaması</label>
+                        <label for="ProductDescription">Ürün Açıklaması</label>
 						<textarea class="form-control" asp-for="ProductDescription"></textarea>
                         <br />
                         <button class="btn btn-primary">Ürün Ekle</button>

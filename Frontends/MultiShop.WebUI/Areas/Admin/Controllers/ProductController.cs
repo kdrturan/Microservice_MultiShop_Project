@@ -65,11 +65,15 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             ViewBag.Categories = categorySelectList;
             return View();
         }
-
+       
         [HttpPost]
         public async Task<IActionResult> CreateProduct(CreateProductDto createProductDto)
         {
             var client = _httpClientFactory.CreateClient();
+            if (string.IsNullOrEmpty(createProductDto.ProductDescription))
+            {
+                createProductDto.ProductDescription = "";
+            }
             var jsonData = JsonConvert.SerializeObject(createProductDto);
             var content = new StringContent(jsonData, System.Text.Encoding.UTF8, "application/json");
             var responseMessage = await client.PostAsync("https://localhost:7206/api/Products", content);
@@ -77,10 +81,9 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             {
                 return RedirectToAction("Index", "Product", new { area = "Admin" });
             }
+
             return View();
         }
-
-
 
 
         [Route("{id}")]
@@ -136,6 +139,10 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateProduct(UpdateProductDto updateProductDto)
         {
+            if (string.IsNullOrEmpty(updateProductDto.ProductDescription))
+            {
+                updateProductDto.ProductDescription = "";
+            }
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(updateProductDto);
             StringContent content = new StringContent(jsonData, System.Text.Encoding.UTF8, "application/json");
