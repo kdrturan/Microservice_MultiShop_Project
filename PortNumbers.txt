@@ -6,3 +6,5 @@ Order -> 7207
 Cargo -> 7208
 Basket -> 7209
 Comment -> 7210
+Payment -> 7211
+Images -> 7212
