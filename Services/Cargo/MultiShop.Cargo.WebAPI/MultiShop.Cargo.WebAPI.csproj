@@ -23,6 +23,7 @@
     <ProjectReference Include="..\..\..\MultiShop.Cargo.Dto\MultiShop.Cargo.Dto.csproj" />
     <ProjectReference Include="..\MultiShop.Cargo.Business\MultiShop.Cargo.Business.csproj" />
     <ProjectReference Include="..\MultiShop.Cargo.DataAccess\MultiShop.Cargo.DataAccess.csproj" />
+    <ProjectReference Include="..\MultiShop.Cargo.Dto\MultiShop.Cargo.Dto.csproj" />
     <ProjectReference Include="..\MultiShop.Cargo.Entity\MultiShop.Cargo.Entity.csproj" />
   </ItemGroup>
 

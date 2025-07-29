@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MultiShop.Cargo.Business.Abstract;
-using MultiShop.Cargo.Dtos.Dtos.CargoCompanyDtos;
+using MultiShop.Cargo.Dto.Dtos.CargoCompanyDtos;
 using MultiShop.Cargo.Entity.Concrete;
 
 namespace MultiShop.Cargo.WebAPI.Controllers

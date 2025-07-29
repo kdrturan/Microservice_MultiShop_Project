@@ -1,0 +1,127 @@
+﻿@model CreateRegisterDto
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Form-v4 by Colorlib</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Fontlar ve CSS -->
+    <link rel="stylesheet" type="text/css" href="~/colorlib-regform-30/css/opensans-font.css">
+    <link rel="stylesheet" type="text/css" href="~/colorlib-regform-30/fonts/line-awesome/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+    <link rel="stylesheet" href="~/colorlib-regform-30/css/style.css" />
+</head>
+
+<body class="form-v4">
+    <div class="page-content">
+        <div class="form-v4-content">
+            <div class="form-left">
+                <h2>Multishop E-Ticaret</h2>
+                <p class="text-1">Hemen Abone Olun</p>
+                <div class="form-left-last">
+                    <a href="/Login/Index" class="account">Giriş Yap</a>
+                </div>
+            </div>
+
+            <form class="form-detail" method="post" >
+                <h2>Kayıt Formu</h2>
+
+                <div class="form-group">
+                    <div class="form-row form-row-1">
+                        <label for="Name">Adınız</label>
+                        <input type="text" asp-for="Name" id="Name" name="Name" class="input-text">
+                    </div>
+                    <div class="form-row form-row-1">
+                        <label for="Surname">Soyadınız</label>
+                        <input type="text" asp-for="Surname" id="Surname" name="Surname" class="input-text">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <label for="Email">Emailiniz</label>
+                    <input type="text" asp-for="Email" id="Email" name="Email" class="input-text" required pattern="[a-z0-9._%+-]+@@[a-z0-9.-]+\.[a-z]{2,}$">
+                </div>
+
+                <div class="form-row">
+                    <label for="UserName">Kullanıcı Adı</label>
+                    <input type="text" asp-for="UserName" id="UserName" name="UserName" class="input-text">
+                </div>
+
+                <div class="form-group">
+                    <div class="form-row form-row-1">
+                        <label for="Password">Şifre</label>
+                        <input type="password" asp-for="Password" id="Password" name="Password" class="input-text" required>
+                    </div>
+                    <div class="form-row form-row-1">
+                        <label for="ConfirmPassword">Şifre Tekrarı</label>
+                        <input type="password" asp-for="ConfirmPassword" id="ConfirmPassword" name="ConfirmPassword" class="input-text" required>
+                    </div>
+                </div>
+
+                <div class="form-row-last">
+                    <button  class="register" style="height:40px;" >Kayıt Ol</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JS Kütüphaneleri -->
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+
+    <!-- Form Validasyonu -->
+    <script>
+        jQuery.validator.setDefaults({
+            debug: false,
+            success: function (label) {
+                label.attr('id', 'valid');
+            }
+        });
+
+        $("#myform").validate({
+            rules: {
+                Name: "required",
+                Surname: "required",
+                Email: {
+                    required: true,
+                    email: true
+                },
+                UserName: "required",
+                Password: "required",
+                ConfirmPassword: {
+                    required: true,
+                    equalTo: "#Password"
+                }
+            },
+            messages: {
+                Name: {
+                    required: "Ad Alanı Zorunlu"
+                },
+                Surname: {
+                    required: "Soyad Alanı Zorunlu"
+                },
+                Email: {
+                    required: "Email Alanı Zorunlu",
+                    email: "Geçerli bir email girin"
+                },
+                UserName: {
+                    required: "Kullanıcı Adı Zorunlu"
+                },
+                Password: {
+                    required: "Şifre Alanı Zorunlu"
+                },
+                ConfirmPassword: {
+                    required: "Şifre Tekrar Alanı Zorunlu",
+                    equalTo: "Şifreler Eşleşmiyor"
+                }
+            }
+        });
+    </script>
+</body>
+</html>
