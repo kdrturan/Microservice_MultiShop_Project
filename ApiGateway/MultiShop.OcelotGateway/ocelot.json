@@ -10,7 +10,7 @@
           "Port": 7206
         }
       ],
-      "UpstreamPathTemplate": "/services/catalog/{everythins}",
+      "UpstreamPathTemplate": "/services/catalog/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
       "UpstreamScheme": "http",
       "AuthenticationOptions": {
@@ -28,7 +28,7 @@
           "Port": 7205
         }
       ],
-      "UpstreamPathTemplate": "/services/discount/{everythins}",
+      "UpstreamPathTemplate": "/services/discount/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
       "UpstreamScheme": "http",
       "AuthenticationOptions": {
@@ -46,7 +46,7 @@
           "Port": 7208
         }
       ],
-      "UpstreamPathTemplate": "/services/cargo/{everythins}",
+      "UpstreamPathTemplate": "/services/cargo/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
       "UpstreamScheme": "http",
       "AuthenticationOptions": {
@@ -64,7 +64,7 @@
           "Port": 7207
         }
       ],
-      "UpstreamPathTemplate": "/services/order/{everythins}",
+      "UpstreamPathTemplate": "/services/order/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
       "UpstreamScheme": "http",
       "AuthenticationOptions": {
@@ -82,7 +82,7 @@
           "Port": 7209
         }
       ],
-      "UpstreamPathTemplate": "/services/basket/{everythins}",
+      "UpstreamPathTemplate": "/services/basket/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
       "UpstreamScheme": "http",
       "AuthenticationOptions": {
@@ -100,7 +100,7 @@
           "Port": 7210
         }
       ],
-      "UpstreamPathTemplate": "/services/comment/{everythins}",
+      "UpstreamPathTemplate": "/services/comment/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
       "UpstreamScheme": "http",
       "AuthenticationOptions": {
@@ -118,7 +118,7 @@
           "Port": 7211
         }
       ],
-      "UpstreamPathTemplate": "/services/payment/{everythins}",
+      "UpstreamPathTemplate": "/services/payment/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
       "UpstreamScheme": "http",
       "AuthenticationOptions": {
@@ -136,7 +136,7 @@
           "Port": 7212
         }
       ],
-      "UpstreamPathTemplate": "/services/images/{everythins}",
+      "UpstreamPathTemplate": "/services/images/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
       "UpstreamScheme": "http",
       "AuthenticationOptions": {
