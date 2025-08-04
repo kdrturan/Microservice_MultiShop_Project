@@ -15,11 +15,18 @@ namespace MultiShop.WebUI.Controllers
         public IActionResult Index(string id)
         {
             ViewBag.i = id;
+            ViewBag.directory1 = "Anasayfa";
+            ViewBag.directory2 = "Ürünler";
+            ViewBag.directory3 = "Ürün Listesi";
             return View();
         }
 
         public IActionResult ProductDetail(string id)
         {
+            ViewBag.directory1 = "Anasayfa";
+            ViewBag.directory2 = "Ürün Listesi";
+            ViewBag.directory3 = "Ürün Detayları";
+
             var acceptHeader = HttpContext.Request.Headers["Accept"].ToString();
             if (!acceptHeader.Contains("text/html"))
             {

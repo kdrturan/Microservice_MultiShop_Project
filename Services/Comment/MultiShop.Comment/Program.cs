@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using MultiShop.Comment.Context;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,6 +6,13 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddDbContext<CommentContext>();
 
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(Options =>
+{
+    Options.Authority = builder.Configuration["IdentityServerUrl"];
+    Options.Audience = "ResourceComment";
+    Options.RequireHttpsMetadata = false;
+});
 
 
 builder.Services.AddControllers();
@@ -22,7 +30,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

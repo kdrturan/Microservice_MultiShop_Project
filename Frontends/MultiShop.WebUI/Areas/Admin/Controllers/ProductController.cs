@@ -2,8 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MultiShop.DtoLayer.CatalogDtos.ProductDtos;
-using MultiShop.DtoLayer.CatalogDtos.ProductDtos;
-using MultiShop.DtoLayer.CatalogDtos.ProductDtos;
 using MultiShop.WebUI.Services.CatalogServices.CategoryServices;
 using MultiShop.WebUI.Services.CatalogServices.ProductServices;
 using Newtonsoft.Json;
@@ -26,7 +24,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         {
             SetViewBagForProductOperations();
 
-            var products = await _productService.GetAllProductAsync();
+            var products = await _productService.GetProductsWithCategoryAsync();
             return View(products);
         }
 
