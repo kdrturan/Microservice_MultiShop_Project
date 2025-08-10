@@ -24,7 +24,7 @@ namespace MultiShop.Order.Application.Features.CQRS.Handlers.AddressHandlers
             if (value != null)
             {
                 value.City = command.CityId;
-                value.Detail = command.Detail;
+                value.Detail1 = command.Detail;
                 value.District = command.DistrictId;
                 value.UserId = command.UserId;
                 await _repository.UpdateAsync(value);

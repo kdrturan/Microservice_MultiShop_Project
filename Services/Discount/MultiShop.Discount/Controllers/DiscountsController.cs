@@ -25,10 +25,10 @@ namespace MultiShop.Discount.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{couponId}")]
-        public async Task<IActionResult> GetDiscountCouponById(int couponId)
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetDiscountCouponById(int id)
         {
-            var result = await _discountService.GetDiscountCouponByIdAsync(couponId);
+            var result = await _discountService.GetDiscountCouponByIdAsync(id);
             if (result == null)
             {
                 return NotFound();
@@ -59,6 +59,18 @@ namespace MultiShop.Discount.Controllers
             return Ok("Kupon Silindi.");
         }
 
-      
+
+
+        [HttpGet("getcouponbycode")]
+        public async Task<IActionResult> GetDiscountCouponById(string code)
+        {
+            var result = await _discountService.GetCodeDetailByCodeAsync(code);
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
+        }
+
     }
 }

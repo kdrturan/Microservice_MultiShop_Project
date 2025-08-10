@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultiShop.Order.Application.Features.CQRS.Command.AddressCommands
+namespace MultiShop.DtoLayer.OrderDtos.OrderAddressDtos
 {
-    public class CreateAddressCommand
+    public class CreateOrderAddressDto
     {
-        public int AddressId { get; set; }
         public string UserId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

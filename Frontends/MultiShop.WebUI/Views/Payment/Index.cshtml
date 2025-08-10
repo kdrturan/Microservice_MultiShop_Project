@@ -1,0 +1,200 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UILayout/_UILayout.cshtml";
+}
+
+<div class="container my-5">
+    <div class="row">
+        <!-- Kart Görseli -->
+        <div class="col-md-6 mb-4">
+            <div class="credit-card" id="credit-card">
+                <!-- Ön Yüz -->
+                <div class="card-front">
+                    <div class="card-chip"></div>
+                    <div class="card-brand" id="card-brand"></div>
+                    <div class="card-number" id="card-number-display">#### #### #### ####</div>
+                    <div class="card-footer">
+                        <div>
+                            <span class="label">Kart Sahibi</span>
+                            <div class="card-holder" id="card-holder-display">AD SOYAD</div>
+                        </div>
+                        <div>
+                            <span class="label">Son Kullanma</span>
+                            <div class="card-expiry" id="card-expiry-display">MM/YY</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arka Yüz -->
+                <div class="card-back">
+                    <div class="black-strip"></div>
+                    <div class="cvv-box">
+                        <span id="cvv-display">***</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form -->
+        <div class="col-md-6">
+            <h4>Kredi Kartı Bilgileri</h4>
+            <form method="post">
+                <div class="form-group">
+                    <label>Kart Numarası</label>
+                    <input type="text" class="form-control" id="card-number" maxlength="19" placeholder="#### #### #### ####">
+                </div>
+                <div class="form-group">
+                    <label>Kart Sahibi</label>
+                    <input type="text" class="form-control" id="card-holder" placeholder="Ad Soyad">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label>Son Kullanma Ay/Yıl</label>
+                        <input type="text" class="form-control" id="card-expiry" maxlength="5" placeholder="MM/YY">
+                    </div>
+                    <div class="form-group col">
+                        <label>CVV</label>
+                        <input type="text" class="form-control" id="card-cvv" maxlength="4" placeholder="***">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Ödeme Yap</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- CSS -->
+<style>
+.credit-card {
+    width: 100%;
+    max-width: 380px;
+    height: 250px;
+    perspective: 1000px;
+}
+.card-front, .card-back {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #3a3a3a, #1a1a1a);
+    color: white;
+    font-family: 'Courier New', monospace;
+    padding: 20px;
+    position: absolute;
+    backface-visibility: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.6s;
+}
+.card-front {
+    transform: rotateY(0deg);
+}
+.card-back {
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.credit-card.flipped .card-front {
+    transform: rotateY(-180deg);
+}
+.credit-card.flipped .card-back {
+    transform: rotateY(0deg);
+}
+.card-chip {
+    width: 50px;
+    height: 35px;
+    background: gold;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+.card-brand {
+    height: 30px;
+    margin-bottom: 10px;
+}
+.card-brand img {
+    height: 100%;
+}
+.card-number {
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+.label {
+    font-size: 0.7rem;
+    opacity: 0.7;
+}
+.black-strip {
+    height: 40px;
+    background: black;
+    margin-bottom: 20px;
+}
+.cvv-box {
+    background: white;
+    color: black;
+    width: 80px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+}
+</style>
+
+<!-- JS -->
+<script>
+const cardNumberInput = document.getElementById('card-number');
+const cardHolderInput = document.getElementById('card-holder');
+const cardExpiryInput = document.getElementById('card-expiry');
+const cardCvvInput = document.getElementById('card-cvv');
+
+const cardNumberDisplay = document.getElementById('card-number-display');
+const cardHolderDisplay = document.getElementById('card-holder-display');
+const cardExpiryDisplay = document.getElementById('card-expiry-display');
+const cvvDisplay = document.getElementById('cvv-display');
+const cardBrand = document.getElementById('card-brand');
+
+const creditCard = document.getElementById('credit-card');
+
+cardNumberInput.addEventListener('input', function () {
+    let value = this.value.replace(/\D/g, '');
+    value = value.replace(/(.{4})/g, '$1 ').trim();
+    this.value = value;
+    cardNumberDisplay.innerText = value || '#### #### #### ####';
+
+    // Kart tipi algılama
+    if (/^4/.test(value)) {
+        cardBrand.innerHTML = '<img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png">';
+    } else if (/^5[1-5]/.test(value)) {
+        cardBrand.innerHTML = '<img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png">';
+    } else {
+        cardBrand.innerHTML = '';
+    }
+});
+
+cardHolderInput.addEventListener('input', function () {
+    cardHolderDisplay.innerText = this.value.toUpperCase() || 'AD SOYAD';
+});
+
+cardExpiryInput.addEventListener('input', function () {
+    let value = this.value.replace(/\D/g, '');
+    if (value.length > 2) {
+        value = value.substring(0, 2) + '/' + value.substring(2, 4);
+    }
+    this.value = value;
+    cardExpiryDisplay.innerText = value || 'MM/YY';
+});
+
+// CVV focus ile kart çevirme
+cardCvvInput.addEventListener('focus', function () {
+    creditCard.classList.add('flipped');
+});
+cardCvvInput.addEventListener('blur', function () {
+    creditCard.classList.remove('flipped');
+});
+cardCvvInput.addEventListener('input', function () {
+    cvvDisplay.innerText = this.value || '***';
+});
+</script>
