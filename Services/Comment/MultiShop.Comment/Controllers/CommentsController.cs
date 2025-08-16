@@ -57,7 +57,7 @@ namespace MultiShop.Comment.Controllers
 
 
         [HttpGet("{id}")]
-        public IActionResult   GetById(int id)
+        public IActionResult GetById(int id)
         {
             var comment = _context.UserComments.Find(id);
             if (comment == null)
@@ -74,6 +74,17 @@ namespace MultiShop.Comment.Controllers
             _context.UserComments.Update(userComment);
             _context.SaveChanges();
             return Ok("Yorum Güncellendi.");
+        }
+
+        [HttpGet("get-comments-count")]
+        public IActionResult GetCommentsCount()
+        {
+            var comments = _context.UserComments.Count();
+            if (comments == 0)
+            {
+                return NotFound("Aktif yorum bulunamadı.");
+            }
+            return Ok(comments);
         }
     }
 }

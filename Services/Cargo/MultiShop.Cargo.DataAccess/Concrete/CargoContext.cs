@@ -15,9 +15,9 @@ namespace MultiShop.Cargo.DataAccess.Concrete
             optionsBuilder.UseSqlServer("Server=localhost,1435;initial catalog=MultiShopCargoDb;TrustServerCertificate=true;User=sa;Password=123456789Aa*");
         }
 
-        DbSet<CargoDetail> CargoDetails { get; set; }
-        DbSet<CargoCustomer> CargoCustomers { get; set; }
-        DbSet<CargoCompany> CargoCompanies { get; set; }
-        DbSet<CargoOperation> CargoOperations { get; set; }
+        public  DbSet<CargoDetail> CargoDetails { get; set; }
+        public DbSet<CargoCustomer> CargoCustomers { get; set; }
+        public DbSet<CargoCompany> CargoCompanies { get; set; }
+        public DbSet<CargoOperation> CargoOperations { get; set; }
     }
 }

@@ -17,5 +17,6 @@ namespace MultiShop.WebUI.Controllers
             var values = await _userService.GetUserInfo();
             return View(values);
         }
+
     }
 }

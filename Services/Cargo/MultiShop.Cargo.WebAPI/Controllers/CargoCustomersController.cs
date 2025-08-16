@@ -50,7 +50,8 @@ namespace MultiShop.Cargo.WebAPI.Controllers
                 Email = cargoCustomerDto.Email,
                 Name = cargoCustomerDto.Name,
                 Surname = cargoCustomerDto.Surname,
-                PhoneNumber = cargoCustomerDto.PhoneNumber
+                PhoneNumber = cargoCustomerDto.PhoneNumber,
+                UserCustomerId = cargoCustomerDto.UserCustomerId
             };
             _cargoCustomerService.TInsert(cargoCustomer);
             return Ok();
@@ -86,6 +87,17 @@ namespace MultiShop.Cargo.WebAPI.Controllers
             }
             _cargoCustomerService.TDelete(id);
             return Ok();
+        }
+
+        [HttpGet("GetCargoCustomerById")]
+        public IActionResult GetCargoCustomerById(string id)
+        {
+            var result = _cargoCustomerService.TGetCargoCustomerById(id);
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
         }
     }
 }

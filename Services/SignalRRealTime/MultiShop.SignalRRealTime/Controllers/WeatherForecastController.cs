@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace MultiShop.Images.Controllers
+namespace MultiShop.SignalRRealTime.Controllers
 {
     [ApiController]
     [Route("[controller]")]

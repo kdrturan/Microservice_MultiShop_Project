@@ -1,4 +1,4 @@
-namespace MultiShop.Images
+namespace MultiShop.SignalRRealTime
 {
     public class WeatherForecast
     {

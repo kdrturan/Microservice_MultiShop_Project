@@ -75,6 +75,9 @@ namespace MultiShop.Cargo.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UserCustomerId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("CargoCustomers");
@@ -109,7 +112,7 @@ namespace MultiShop.Cargo.DataAccess.Migrations
                     b.ToTable("CargoDetails");
                 });
 
-            modelBuilder.Entity("MultiShop.Cargo.Entity.Concrete.CargoOperations", b =>
+            modelBuilder.Entity("MultiShop.Cargo.Entity.Concrete.CargoOperation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
