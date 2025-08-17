@@ -1,0 +1,6 @@
+@MultiShop.Images.WebUI_HostAddress = http://localhost:5032
+
+GET {{MultiShop.Images.WebUI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
